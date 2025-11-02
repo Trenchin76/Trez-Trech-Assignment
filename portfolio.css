@@ -1,0 +1,169 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+line-height: 1.6;
+    color: black;
+}
+
+/*Navbar */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: brown;
+    color: black;
+    padding: 1rem;
+}
+
+.nav-links {
+    list-style:none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00bcd4;
+}
+
+/* Hero Section*/
+.home {
+    height: 100vh;
+    /* Gradient + Image background */
+    background: linear-gradient(to margin-right, brown, black, gray)
+    url("images/17340.jpg") center/cover no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.home h1 span {
+    color: #333;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p{
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* About */
+.about, .skills, .projects, .contacts {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Skils */
+.skill {
+    margin: 15px 0;
+}
+
+.bar {
+    width: 80%;
+    background: white;
+    margin: 5px auto;
+    border-radius: 5px;
+}
+
+.progress {
+    height: 10;
+    border-radius: 5px;
+}
+
+.progress.html {width: 85%; background: #e44d26;}
+.progress.css {width: 75%; background: #264de4;}
+.progress.js {width: 55%; background: #f0db4f;}
+
+/* Projects */
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-card {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.project-card :hover {
+    transform: scale(1.05);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Contact */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button :hover {
+    background: #0097a7;
+}
+
+/* Footer */
+footer {
+    background: brown;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
