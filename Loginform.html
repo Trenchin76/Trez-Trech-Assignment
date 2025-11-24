@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form</title>
+  <style>
+    .error {
+      color: red;
+      margin-top: 5px;
+    }
+    input {
+      display: block;
+      margin-bottom: 10px;
+      padding: 6px;
+      width: 200px;
+    }
+    .error-border {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Login Form</h2>
+
+  <form id="loginForm">
+    <label>Username:</label>
+    <input type="text" id="username">
+
+    <label>Password:</label>
+    <input type="password" id="password">
+
+    <button type="submit">Login</button>
+  </form>
+
+  <div id="messages" class="error"></div>
+
+  <script>
+    const form = document.getElementById("loginForm");
+    const messages = document.getElementById("messages");
+
+    // REAL LOGIN DETAILS
+    const REAL_USERNAME = "admin123";
+    const REAL_PASSWORD = "mypassword";
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      let errors = [];
+
+      const username = document.getElementById("username");
+      const password = document.getElementById("password");
+
+      // Reset borders
+      username.classList.remove("error-border");
+      password.classList.remove("error-border");
+
+      // BASIC VALIDATION
+      if (username.value.trim() === "") {
+        errors.push("Username cannot be empty");
+        username.classList.add("error-border");
+      } else if (username.value.length < 4) {
+        errors.push("Username must be at least 4 characters");
+        username.classList.add("error-border");
+      }
+
+      if (password.value.trim() === "") {
+        errors.push("Password cannot be empty");
+        password.classList.add("error-border");
+      } else if (password.value.length < 6) {
+        errors.push("Password too short (minimum 6 characters)");
+        password.classList.add("error-border");
+      }
+
+      // CHECK AGAINST REAL USERNAME/PASSWORD
+      if (errors.length === 0) {
+        if (username.value !== REAL_USERNAME || password.value !== REAL_PASSWORD) {
+          errors.push("Incorrect username or password");
+          username.classList.add("error-border");
+          password.classList.add("error-border");
+        }
+      }
+
+      // SHOW OUTPUT
+      if (errors.length > 0) {
+        messages.innerHTML = errors.join("<br>");
+      } else {
+        messages.style.color = "green";
+        messages.innerHTML = "Login successful!";
+      }
+    });
+  </script>
+
+</body>
+</html>
